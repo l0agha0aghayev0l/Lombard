@@ -1,0 +1,441 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/Əlaqə.css" />
+    <title>Əlaqə</title>
+</head>
+<style>
+ * {
+	 box-sizing: border-box;
+}
+
+
+ a {
+	 text-decoration: none;
+}
+
+ 
+.mobil_hamburger_menu {
+    display: none;
+}
+
+.window {
+	 position: relative;
+	 display: block;
+	 width: 100%;
+	 height: auto !important;
+	 margin: 100px auto 0;
+	 overflow: hidden;
+	 border-radius: 3px;
+}
+ .window .header {
+	 position: absolute;
+	 display: block;
+	 top: 0;
+	 left: 0;
+	 height: 100px;
+	 width: 100%;
+	 background: #FFF;
+	 overflow: hidden;
+	 transition: all 0.5s ease-out, background 1s ease-out;
+	 transition-delay: 0.2s;
+	 z-index: 1;
+}
+ .window .header .burger-container {
+	 position: relative;
+	 display: inline-block;
+	 height: 30px;
+	 width: 30px;
+	 cursor: pointer;
+	 transform: rotate(0deg);
+	 transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+	 user-select: none;
+	 -webkit-tap-highlight-color: transparent;
+}
+ .window .header .burger-container #burger {
+	 width: 18px;
+	 height: 8px;
+	 position: relative;
+	 display: block;
+	 margin: -4px auto 0;
+	 top: 50%;
+}
+ .window .header .burger-container #burger .bar {
+	 width: 100%;
+	 height: 1px;
+	 display: block;
+	 position: relative;
+	 background: #fff;
+	 transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+	 transition-delay: 0s;
+}
+ .window .header .burger-container #burger .bar.topBar {
+	 transform: translateY(0px) rotate(0deg);
+}
+ .window .header .burger-container #burger .bar.btmBar {
+	 transform: translateY(6px) rotate(0deg);
+}
+ .window .header .icon {
+	 display: inline-block;
+	 position: absolute;
+	 height: 100%;
+	 line-height: 50px;
+	 width: 50px;
+	 height: 50px;
+	 text-align: center;
+	 color: #fff;
+	 font-size: 22px;
+	 left: 50%;
+	 transform: translateX(-50%);
+}
+ .window .header .icon.icon-bag {
+	 right: 0;
+	 top: 0;
+	 left: auto;
+	 transform: translateX(0px);
+	 transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+	 transition-delay: 0.65s;
+}
+ .window .header ul.menu {
+	 position: relative;
+	 display: block;
+	 padding: 0px 48px 0;
+	 list-style: none;
+}
+ .window .header ul.menu li.menu-item {
+	 /* border-bottom: 1px solid #333; */
+	 margin-top: 5px;
+	 transform: scale(1.15) translateY(-30px);
+	 opacity: 0;
+	 transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+}
+ .window .header ul.menu li.menu-item:nth-child(1) {
+	 transition-delay: 0.49s;
+}
+ .window .header ul.menu li.menu-item:nth-child(2) {
+	 transition-delay: 0.42s;
+}
+ .window .header ul.menu li.menu-item:nth-child(3) {
+	 transition-delay: 0.35s;
+}
+ .window .header ul.menu li.menu-item:nth-child(4) {
+	 transition-delay: 0.28s;
+}
+ .window .header ul.menu li.menu-item:nth-child(5) {
+	 transition-delay: 0.21s;
+}
+ .window .header ul.menu li.menu-item:nth-child(6) {
+	 transition-delay: 0.14s;
+}
+ .window .header ul.menu li.menu-item:nth-child(7) {
+	 transition-delay: 0.07s;
+}
+ .window .header ul.menu li.menu-item .menu a {
+	 display: block;
+	 position: relative;
+	 color: #fff;
+	 font-family: 'Ek Mukta', sans-serif;
+	 font-weight: 100;
+	 text-decoration: none;
+	 font-size: 22px;
+	 line-height: 2.35;
+	 font-weight: 200;
+	 width: 100%;
+}
+ .window .header.menu-opened {
+	 height: 100%;
+	 background: #FFF;
+	 transition: all 0.3s ease-in, background 0.5s ease-in;
+	 transition-delay: 0.25s;
+}
+ .window .header.menu-opened .burger-container {
+	 transform: rotate(90deg);
+}
+ .window .header.menu-opened .burger-container #burger .bar {
+	 transition: all 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+	 transition-delay: 0.2s;
+}
+ .window .header.menu-opened .burger-container #burger .bar.topBar {
+	 transform: translateY(4px) rotate(45deg);
+}
+ .window .header.menu-opened .burger-container #burger .bar.btmBar {
+	 transform: translateY(3px) rotate(-45deg);
+}
+ .window .header.menu-opened ul.menu li.menu-item {
+	 transform: scale(1) translateY(0px);
+	 opacity: 1;
+}
+ .window .header.menu-opened ul.menu li.menu-item:nth-child(1) {
+	 transition-delay: 0.27s;
+}
+ .window .header.menu-opened ul.menu li.menu-item:nth-child(2) {
+	 transition-delay: 0.34s;
+}
+ .window .header.menu-opened ul.menu li.menu-item:nth-child(3) {
+	 transition-delay: 0.41s;
+}
+ .window .header.menu-opened ul.menu li.menu-item:nth-child(4) {
+	 transition-delay: 0.48s;
+}
+ .window .header.menu-opened ul.menu li.menu-item:nth-child(5) {
+	 transition-delay: 0.55s;
+}
+ .window .header.menu-opened ul.menu li.menu-item:nth-child(6) {
+	 transition-delay: 0.62s;
+}
+ .window .header.menu-opened ul.menu li.menu-item:nth-child(7) {
+	 transition-delay: 0.69s;
+}
+ .window .header.menu-opened .icon.icon-bag {
+	 transform: translateX(75px);
+	 transition-delay: 0.3s;
+}
+.hamburger_logo_phone {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.buttons_for_mobil {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.buttons_for_mobil button {
+    margin-left: 10px;
+}
+
+ @media (max-width: 850px) {
+	 .window {
+		 width: 100%;
+		 height: 100vh;
+		 margin: 0;
+		 border-radius: 0px;
+	}
+	 .window .header {
+		 position: fixed;
+	}
+}
+@media (max-width: 850px) {
+.mobil_hamburger_menu {
+    display: block;
+}
+.desktop_visuality {
+    display: none;
+}
+.menu .menu-item {
+    margin-top: 40px !important; 
+}
+.menu .menu-item a {
+    color: #187232;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.link_logo {
+    display: flex;
+    justify-content:end;
+}
+.link_logo img {
+    width: auto;
+    left: 0;
+    float: right;
+}
+#desktop_logo {
+    display: none;
+    margin-bottom: 30px;
+}
+.main_navbar .mobil_hamburger_menu {
+    display: block;
+}
+.slider {
+    width: 100%;
+    margin-top: 55px;
+}
+.laptop_version_navbar {
+    display: none;
+}
+}
+</style>
+<body>
+        <div class="mobil_hamburger_menu">
+            <div class="window">
+                <div class="header">
+                    <div class="hamburger_logo_phone">
+                  <div class="burger-container" style="border-radius: 5px;background: #187232;padding: 0;">
+                    <div id="burger">
+                      <div class="bar topBar"></div>
+                      <div class="bar btmBar"></div>
+                    </div>
+                  </div>
+                  <a href="index.html"><img src="images/logo.png" style="width: 207px;height: 72px;flex-shrink: 0; z-index: 50;"></a>
+                  <a href="tel:+"><div style="display: inline-flex;padding: 5px;align-items: flex-start;gap: 10px;border-radius: 5px;background: #187232;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M4.02222 8.65556C5.62222 11.8 8.2 14.3667 11.3444 15.9778L13.7889 13.5333C14.0889 13.2333 14.5333 13.1333 14.9222 13.2667C16.1667 13.6778 17.5111 13.9 18.8889 13.9C19.5 13.9 20 14.4 20 15.0111V18.8889C20 19.5 19.5 20 18.8889 20C8.45556 20 0 11.5444 0 1.11111C0 0.5 0.5 0 1.11111 0H5C5.61111 0 6.11111 0.5 6.11111 1.11111C6.11111 2.5 6.33333 3.83333 6.74444 5.07778C6.86667 5.46667 6.77778 5.9 6.46667 6.21111L4.02222 8.65556Z" fill="white"/>
+                  </svg></div></a>
+                </div>
+                  <div class="icon icon-apple"></div>
+                  <ul class="menu">
+                    <div class="buttons_for_mobil" style="margin-top: 30px;">
+                        <li><button class="pay_kredit">Kredit Ödənişi</button></li>
+                        <li><button class="get_kredit">Kredit al</button></li>
+                    </div>
+                    <li class="menu-item"><a href="haqqımızda.html">Haqqımızda</a></li>
+                    <li class="menu-item"><a href="Şərtlər.html">Şərtlər</a></li>
+                    <li class="menu-item"><a href="Filiallar.html">Filiallar</a></li>
+                    <li class="menu-item"><a href="Karyera.html">Karyera</a></li>
+                    <li class="menu-item"><a href="Kredit kalkulyatoru.html">Kredit kalkulyatoru</a></li>
+                    <li class="menu-item"><a href="Əlaqə.html">Əlaqə</a></li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+        <div class="laptop_version_navbar">
+            <div class="main_navbar3">
+                <div class="logo_settings">
+                    <a href="index.html" class="link_logo_laptop">
+                        <img src="images/logo.png" alt="DOST-lombard" title="DOST-lombard" class="image_for_resolt_laptop" id="desktop_logo" >
+                    </a>
+                    <div class="niber_social_box_laptop">
+                        <li class="number_laptop"><span>+994(51)2778099</span></li>
+                        <button><span><h4>Filiallarda Ödə</h4> Filiallara yaxınlaşıb ödəniş edin<svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 30 20" fill="none">
+                            <path d="M16.8771 19.7748C16.6978 19.6304 16.5971 19.4347 16.5971 19.2307C16.5971 19.0266 16.6978 18.8309 16.8771 18.6866L26.7311 10.7607L0.957474 10.7607C0.703535 10.7607 0.459997 10.6796 0.280437 10.5352C0.100876 10.3908 0 10.195 0 9.99074C0 9.78652 0.100876 9.59067 0.280437 9.44627C0.459997 9.30186 0.703535 9.22074 0.957474 9.22074L26.7311 9.22074L16.8771 1.29492C16.7079 1.14895 16.6159 0.955893 16.6202 0.756412C16.6246 0.556931 16.7251 0.366603 16.9005 0.225526C17.076 0.0844499 17.3126 0.00363958 17.5607 0.000119963C17.8087 -0.00339965 18.0488 0.0706461 18.2303 0.206658L29.72 9.4466C29.8993 9.59098 30 9.78668 30 9.99074C30 10.1948 29.8993 10.3905 29.72 10.5349L18.2303 19.7748C18.0508 19.919 17.8074 20 17.5537 20C17.3 20 17.0566 19.919 16.8771 19.7748Z" fill="#187232"/>
+                        </svg></span></button>
+                    </div>
+                </div>
+                     <div class="desktop_visuality_laptop" style="width: 100%;">
+                        <ul class="nav3" id="top-navigation">
+                            <li class="active"><a href="haqqımızda.html" target="_blank">Haqqımızda</a></li>
+                            <li><a href="Şərtlər.html"  target="_blank">Şərtlər</a></li>
+                            <li><a href="Filiallar.html" target="_blank">Filiallar</a></li>
+                            <li><a href="Karyera.html" target="_blank">Karyera</a></li>
+                            <li><a href="Kredit kalkulyatoru.html" target="_blank">Kredit kalkulyatoru</a></li>
+                            <li><a href="Əlaqə.html"  target="_blank">Əlaqə</a></li>
+                            <li><button class="pay_kredit">Kredit Ödənişi</button></li>
+                            <li><button class="get_kredit">Kredit al</button></li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    <div class="main_navbar">
+        <a href="index.html" class="link_logo">
+            <img src="images/logo.png" alt="DOST-lombard" title="DOST-lombard" class="image_for_resolt3" id="desktop_logo" >
+            <!-- <img src="images/logo.png" alt="DOST-lombard" title="DOST-lombard" class="image_for_resolt" style="width:auto; height:45px;" /> -->
+        </a>
+            <!-- This is website logo -->
+            <!-- <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" style="background-color:#ffae02;margin-top: 10px;">
+                <i class="icon-menu"></i>
+            </button> -->
+             <!-- Main navigation -->
+             <div class="desktop_visuality" style="width: 100%;">
+                <ul class="nav" id="top-navigation">
+                    <li class="active"><a href="haqqımızda.html" target="_blank">Haqqımızda</a></li>
+                    <li><a href="Şərtlər.html" class="order" target="_blank">Şərtlər</a></li>
+                    <li><a href="Filiallar.html" target="_blank">Filiallar</a></li>
+                    <li><a href="Karyera.html" target="_blank">Karyera</a></li>
+                    <li><a href="Kredit kalkulyatoru.html" target="_blank">Kredit kalkulyatoru</a></li>
+                    <li><a href="Əlaqə.html" class="mob_nav_var" target="_blank">Əlaqə</a></li>
+                    <li><button class="pay_kredit">Kredit Ödənişi</button></li>
+                    <li><button class="get_kredit">Kredit al</button></li>
+                </ul>
+                    <div class="niber_social_box">
+                        <li class="number"><span>+994(51)2778099</span></li>
+                        <button><span><h4>Filiallarda Ödə</h4> Filiallara yaxınlaşıb ödəniş edin<svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 30 20" fill="none">
+                            <path d="M16.8771 19.7748C16.6978 19.6304 16.5971 19.4347 16.5971 19.2307C16.5971 19.0266 16.6978 18.8309 16.8771 18.6866L26.7311 10.7607L0.957474 10.7607C0.703535 10.7607 0.459997 10.6796 0.280437 10.5352C0.100876 10.3908 0 10.195 0 9.99074C0 9.78652 0.100876 9.59067 0.280437 9.44627C0.459997 9.30186 0.703535 9.22074 0.957474 9.22074L26.7311 9.22074L16.8771 1.29492C16.7079 1.14895 16.6159 0.955893 16.6202 0.756412C16.6246 0.556931 16.7251 0.366603 16.9005 0.225526C17.076 0.0844499 17.3126 0.00363958 17.5607 0.000119963C17.8087 -0.00339965 18.0488 0.0706461 18.2303 0.206658L29.72 9.4466C29.8993 9.59098 30 9.78668 30 9.99074C30 10.1948 29.8993 10.3905 29.72 10.5349L18.2303 19.7748C18.0508 19.919 17.8074 20 17.5537 20C17.3 20 17.0566 19.919 16.8771 19.7748Z" fill="#187232"/>
+                          </svg></span></button>
+                    </div>
+            </div>
+    </div>
+
+       <h1 class="box_names">Əlaqə</h1>
+        
+       <div class="more_part">
+        <div class="more_top_side">
+            <div class="name_icons">
+                <h3>DOST Lombard</h3>
+             <div class="year_icons_mob_version">
+                <span>© 2020 Dost Lombard. </span>
+                <div class="social_icons_greens">
+                <a href="#" target="_blank"><img src="images/bi_facebook.png"></a>
+                <a href="#" target="_blank"><img src="images/Vector (1).png"></a>
+                <a href="#" target="_blank"><img src="images/green_icon.png"></a>
+                </div>
+             </div>
+            </div>
+            <div class="locations_on_phone">
+            <div class="first_location">
+                <h4>Qara Qarayev Filialı</h4>
+                <span><img src="images/Vector2.png" style="vertical-align: middle;">+994(51)2778099</span>
+                <span><img src="images/Vector3.png" style="vertical-align: middle;">Nizami rayonu, Azər Manafov 13 </span>
+            </div>
+            <div class="second_location">
+                <h4>Mərkəz Filialı</h4>
+                <span><img src="images/Vector2.png" style="vertical-align: middle;">+994(51)2778097</span>
+                <span><img src="images/Vector3.png" style="vertical-align: middle;">Nəsimi rayonu, Bülbül prospekti 75 </span>
+            </div>
+        </div>
+        </div>
+
+     <div class="more_bottom_side">
+        <img src="images/wordk_time.png">
+        <iframe style="border: 1px solid #000;
+        background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.20), -5px -5px 5px 0px rgba(0, 0, 0, 0.20);" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.474342037332!2d49.92940291189707!3d40.42049437131979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4030625f97d4dab9%3A0x57b0e475e0050cc6!2zbSwgMTMgQXrJmXIgTWFuYWZvdiBrw7zDp8mZc2ksIEJha8Sx!5e0!3m2!1sru!2saz!4v1696015054865!5m2!1sru!2saz" width="600" height="420" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+     </div>
+    </div>
+
+
+    <!--------- FORM TO COMMUNICATE WITH COMPANY START --------->
+            <div class="comment_second_map_part">
+                    <div class="left_side_formas">
+                        <h3>Təklif  və şikayətlərinizi bizə  göndərin</h3>
+                        <form class="comment_send">
+                            <input type="text" autocomplete="off" name="name_surname" placeholder="Ad,Soyad" required />
+                            <input type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" autocomplete="off" name="client_email" placeholder="Email" required />
+                            <input type="note" autocomplete="off" name="notes" placeholder="Müraciət" required />
+                            <input type="submit" name="send_comment" value="GÖNDƏR" /> 
+                        </form>
+                    </div>
+            </div>
+<!--------- FORM TO COMMUNICATE WITH COMPANY START --------->
+
+            <div class="footer">
+                <div class="main_navbar2">
+                    <a href="index.html" class="brand" target="_blank">
+                        <img src="images/logo.png" alt="DOST-lombard" title="DOST-lombard" class="image_for_resolt_footer">
+                    </a>
+                         <ul class="nav2">
+                                <div class="footer_box_firstLine">
+                                    <li class="active"><a href="haqqımızda.html" target="_blank">Haqqımızda</a></li>
+                                    <li><a href="Şərtlər.html" class="order" target="_blank">Şərtlər</a></li>
+                                    <li><a href="Filiallar.html" target="_blank">Filiallar</a></li>
+                                </div>
+                                <div class="footer_box_secondLine">
+                                    <li><a href="Karyera.html" target="_blank">Karyera</a></li>
+                                    <li><a href="Kredit kalkulyatoru.html" target="_blank">Kredit kalkulyatoru</a></li>
+                                    <li><a href="Əlaqə.html" class="mob_nav_var" target="_blank">Əlaqə</a></li>
+                                </div>
+                                <div class="footer_box_thirdLine">
+                                    <li><button class="get_kredit" target="_blank">Kredit al</button></li>
+                                    <li><a href="#" target="_blank"><img src="images/bi_facebook.png" style="margin-right: 10px;"></a><a href="#" target="_blank"><img src="images/Vector (1).png"></a><a href="#" target="_blank"><img style="margin-left: 10px;" src="images/green_icon.png"></a></li>
+                                </div>
+                            </ul>
+                </div>
+            </div>
+        <script>
+            (function(){
+    var burger = document.querySelector('.burger-container'),
+        header = document.querySelector('.header');
+    
+    burger.onclick = function() {
+        header.classList.toggle('menu-opened');
+    }
+}());
+        </script>
+</body>
+</html>
+
+
