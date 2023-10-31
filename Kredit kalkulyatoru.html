@@ -358,21 +358,21 @@
         <div class="left_side_kredit">
             <div class="fisrt_column">
             <span>ƏYAR</span>
-            <input type="text" value="375">
-            <input type="text" value="583">
-            <input type="text" value="750">
-            <input type="text" value="875">
-            <input type="text" value="916">
-            <input type="text" value="999">
+            <input type="text" value="0" required>
+            <input type="text" value="0" required>
+            <input type="text" value="0" required>
+            <input type="text" value="0" required>
+            <input type="text" value="0" required>
+            <input type="text" value="0" required>
             </div>
             <div class="second_column">
             <span>Qram</span>
-            <input type="text" value="Qr">
-            <input type="text" value="Qr">
-            <input type="text" value="Qr">
-            <input type="text" value="Qr">
-            <input type="text" value="Qr">
-            <input type="text" value="Qr">
+            <input type="text" value="0" required>
+            <input type="text" value="0" required>
+            <input type="text" value="0" required>
+            <input type="text" value="0" required>
+            <input type="text" value="0" required>
+            <input type="text" value="0" required>
             </div>
             <div class="third_column">
             <span>Məbləg</span>
@@ -403,7 +403,7 @@
         </div>
     </div>
     <div class="left_side_buton_place">
-        <button>ÜMUMİ KREDİT MƏBLƏĞİ</button> <input style="text-align: inherit;" type="text" value="AZN">
+        <button id="counter_kredit_page" style="cursor: pointer;">ÜMUMİ KREDİT MƏBLƏĞİ</button> <input style="text-align: inherit;" type="text" value="AZN">
     </div> 
     <div class="mobil_version_calc">
     <div class="right_side_kredit">
@@ -428,7 +428,7 @@
     <div class="qustion_formas_part">
         <div class="qustion_formas_table">
                 <h3>Kredit Müraciəti</h3>
-                <form class="message_formas">
+                <form class="message_formas" id="form_for_desktop">
                     <div class="fisrt_line_of_message">
                         <input type="text" placeholder="Ad" autocomplete="off" name="firstName" required />
                         <input type="text" placeholder="Soyad" autocomplete="off" name="lastName" required />
@@ -450,7 +450,7 @@
     <div class="qustion_formas_part">
         <div class="qustion_formas_table">
                 <h3>Kredit Müraciəti</h3>
-                <form class="message_formas">
+                <form class="message_formas" id="form_for_phone">
                     <div class="fisrt_line_of_message">
                         <input type="text" placeholder="Ad" autocomplete="off" name="firstName" required />
                         <input type="text" placeholder="Soyad" autocomplete="off" name="lastName" required />
