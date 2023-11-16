@@ -358,30 +358,31 @@
         <div class="left_side_kredit">
             <div class="fisrt_column">
             <span>ƏYAR</span>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
+            <input type="text" id="cone" value="375" readonly>
+            <input type="text" id="ctwo" value="585" readonly>
+            <input type="text" id="cthree" value="750" readonly>
+            <input type="text" id="cfour" value="875" readonly>
+            <input type="text" id="cfive" value="916" readonly>
+            <input type="text" id="csix" value="999" readonly>
             </div>
             <div class="second_column">
             <span>Qram</span>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
+            <input type="number" value="0" id="fone" required>
+            <input type="number" value="0" id="ftwo" required>
+            <input type="number" value="0" id="fthree" required>
+            <input type="number" value="0" id="ffour" required>
+            <input type="number" value="0" id="ffive" required>
+            <input type="number" value="0" id="fsix" required>
             </div>
             <div class="third_column">
             <span>Məbləg</span>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
-            <input type="text" value="0" required>
+            <input type="text" value="0" id="vone" readonly>
+            <input type="text" value="0" id="vtwo" readonly>
+            <input type="text" value="0" id="vthree" readonly>
+            <input type="text" value="0" id="vfour" readonly>
+            <input type="text" value="0" id="vfive" readonly>
+            <input type="text" value="0" id="vsix" readonly>
+
             
         </div>
         </div>
@@ -389,35 +390,36 @@
             <div class="right_side_kredit">
                 <div class="fisrt_column_right">
                     <span>Məbləg</span>
-                    <input style="text-align: inherit;" type="text" value="AZN">
+                    <input style="text-align: inherit;" type="text" id="summ2" value="AZN">
                 </div>
                 <div class="second_column_right">
                     <span>Ay</span>
-                    <input type="text">
+                    <input value="12" id="pc_month" type="text">
                 </div>
                 <div class="third_column_right">
                     <span>Aylıq Ödəniş</span>
-                    <input type="text">
+                    <input id="pc_total" type="text">
                 </div>
             </div>
         </div>
     </div>
     <div class="left_side_buton_place">
-        <button id="counter_kredit_page" style="cursor: pointer;">ÜMUMİ KREDİT MƏBLƏĞİ</button> <input style="text-align: inherit;" type="text" value="AZN">
+        <button id="counter" form="calc" onclick="calculate()" style="cursor: pointer;">ÜMUMİ KREDİT MƏBLƏĞİ</button> 
+        <input style="text-align: inherit;" type="text" id="summ" value="AZN 0">
     </div> 
     <div class="mobil_version_calc">
     <div class="right_side_kredit">
         <div class="fisrt_column_right">
             <span>Məbləg</span>
-            <input style="text-align: inherit;" type="text" value="AZN" readonly>
+            <input style="text-align: inherit;" type="text" id="summ3" value="AZN 0" readonly>
         </div>
         <div class="second_column_right">
             <span>Ay</span>
-            <input type="text">
+            <input value="12" id="mb_month" type="text">
         </div>
         <div class="third_column_right">
             <span>Aylıq  Ödəniş</span>
-            <input type="text">
+            <input id="mb_total" type="text">
         </div>
     </div>
 </div>
@@ -500,6 +502,72 @@
         header.classList.toggle('menu-opened');
     }
 }());
+
+
+function calculate() {
+            const inputs = [
+                document.getElementById("fone"),
+                document.getElementById("ftwo"),
+                document.getElementById("fthree"),
+                document.getElementById("ffour"),
+                document.getElementById("ffive"),
+                document.getElementById("fsix")
+            ];
+            const contents = [
+                document.getElementById("cone"),
+                document.getElementById("ctwo"),
+                document.getElementById("cthree"),
+                document.getElementById("cfour"),
+                document.getElementById("cfive"),
+                document.getElementById("csix")
+            ]
+            const total = [
+                document.getElementById("vone"),
+                document.getElementById("vtwo"),
+                document.getElementById("vthree"),
+                document.getElementById("vfour"),
+                document.getElementById("vfive"),
+                document.getElementById("vsix")
+            ];
+
+            
+
+            const values = [41.0 , 64.0 ,82.0 , 96.0 ,100.0 ,110.0];
+
+            inputs.forEach(element => {
+                if (element.value == "" || element.value < 0) {
+                    element.value = '0';
+                }
+            });
+            
+            var summary = 0;
+
+            for (let i = 0; i < values.length; i++) {
+                const result = parseInt(values[i])  * parseInt(inputs[i].value);
+                total[i].value =parseInt(result);
+                summary += result;
+            }
+
+            
+            var result1 = document.getElementById("summ");
+            var result2 = document.getElementById("summ2");
+            var result3 = document.getElementById("summ3");
+            
+            result1.value = "AZN " + summary;
+            result2.value = "AZN " + summary;
+            result3.value = "AZN " + summary;
+
+            var pcm = document.getElementById("pc_month"); 
+            var mbm = document.getElementById("mb_month");
+            var pct = document.getElementById("pc_total");
+            var mbt = document.getElementById("mb_total");
+
+            var fvalue1 = (summary * 23.6/100 + summary) / parseInt(pcm.value);
+            var fvalue2 = (summary * 23.6/100 + summary) / parseInt(mbm.value); 
+
+            pct.value = Math.round(fvalue1);
+            mbt.value = Math.round(fvalue2);
+        }
         </script>
 </body>
 </html>
