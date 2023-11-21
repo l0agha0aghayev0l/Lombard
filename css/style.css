@@ -1156,12 +1156,12 @@ input[type=note] {
         margin: 20px 0 20px 0;
   }
      .more_bottom_side iframe {
-        width: 100%;
+        width: 95%;
         margin:0 0 20px 0;
   }
   .footer {
     margin-top: 50px;
-    width: auto;
+    width: 99%;
   }
     .nav2  {
         width: auto;
