@@ -850,38 +850,43 @@ input[type=note] {
         width: auto;
         display: flex;
         flex-direction: column;
-        margin-top: 30px;
-        border: 2px solid red;
+        margin-top: 10px;
+        /* border: 2px solid red; */
     }
     .icons_word_all span {
-        font-size: 10px;
-        margin-right: 15px;
-        margin: 15px;
+        /* font-size: 10px; */
+        /* margin-right: 15px; */
+        /* margin: 15px; */
         white-space: nowrap;
     }
     .icons_word_all img {
-        width: 25px;
+        /* width: 25px; */
         height: auto;
         flex-shrink: 0;
     }
     .icons_words_box {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         margin: 0;
         padding: 0;
     }
     .icons_words_box img {
-        margin-right: 10px;
+        /* margin-right: 10px; */
     }
     .icons_words_box_thrid {
         display: flex;
-        flex-direction: row;
-        margin: 15px;
+        flex-direction: column;
+        width: 100%;
+        /* margin: 15px; */
+        margin-top: -5px !important;
     }
     .icons_words_box_second {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        width: 100%;
         margin: 0;
+        padding: 0;
+        margin-top: -100px !important;
     }
     .about_part img {
         width: 100%;
