@@ -213,6 +213,16 @@ ul li a {
     border-radius: 5px;
     border: 1px solid #187232;
     background: #187232;
+    cursor: pointer;
+}
+.instruction {
+    color: #187232;;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 .buttons_approximately .first {
     margin-right: 20px;
