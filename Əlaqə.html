@@ -405,7 +405,7 @@
             <div class="comment_second_map_part">
                     <div class="left_side_formas">
                         <h3>Təklif  və şikayətlərinizi bizə  göndərin</h3>
-                        <form class="comment_send">
+                        <form class="comment_send" action="php/mail_send_more.php" name="word_form" id="word_form" method="post" enctype="multipart/form-data">
                             <input type="text" autocomplete="off" name="name_surname" placeholder="Ad,Soyad" required />
                             <input type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" autocomplete="off" name="client_email" placeholder="Email" required />
                             <input type="note" autocomplete="off" name="notes" placeholder="Müraciət" required />
