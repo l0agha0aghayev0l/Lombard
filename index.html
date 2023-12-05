@@ -626,6 +626,20 @@
     <script src="js/jquery-3.6.3.min.js"></script>
     <script>
         (function () {
+            var p_url=location.search.substring(1);
+            if(p_url=="sent"){
+alert('Uğurla göndərildi');
+            }
+            if(p_url=="err1"){
+alert('ERROR 1');
+            }
+            if(p_url=="err2"){
+alert('ERROR 2');
+            }
+            if(p_url=="err3"){
+alert('ERROR 3');
+            }
+
             var burger = document.querySelector('.burger-container'),
                 header = document.querySelector('.header');
 
