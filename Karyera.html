@@ -16,7 +16,7 @@
 	 text-decoration: none;
 }
 
- 
+
 .mobil_hamburger_menu {
     display: none;
 }
@@ -227,7 +227,7 @@
     display: none;
 }
 .menu .menu-item {
-    margin-top: 40px !important; 
+    margin-top: 40px !important;
 }
 .menu .menu-item a {
     color: #187232;
@@ -418,11 +418,11 @@
             <div class="right_side_form">
                 <div class="formas_settings">
                     <h3>Müraciət edin</h3>
-                    <form class="word_forms">
+                    <form class="word_forms" action="php/mail_send_karyera.php" name="word_form" id="word_form" method="post" enctype="multipart/form-data">
                         <input type="text" name="name_surname" autocomplete="off" placeholder="Ad, Soyad" required />
                         <input type="email" name="email" autocomplete="off" placeholder="Email" required />
                         <input class="custom-file-input" type="file" name="document" title="CV-nizi yükləyin"  accept="application/msword,application/pdf, image/*" required />
-                        <input type="submit" name="send_button" value="MÜRACİƏT ET" /> 
+                        <input type="submit" name="send_button" value="MÜRACİƏT ET" />
                     </form>
                 </div>
             </div>
@@ -457,7 +457,7 @@
             (function(){
     var burger = document.querySelector('.burger-container'),
         header = document.querySelector('.header');
-    
+
     burger.onclick = function() {
         header.classList.toggle('menu-opened');
     }
@@ -493,6 +493,29 @@ $(document).ready(function(){
                     $('#firstSecond').slideToggle('slow');
                 });
             });
+
+
+
+/*
+            $(document).ready(function(){
+                $("#word_form").submit(function(e){
+                    e.preventDefault();
+                    var formdata = new FormData(this);
+                    formdata.append( 'file', $('input[type=file]')[0].files[0] );
+                    $.ajax({
+                        type: 'POST',
+                        url: 'php/mail_send_karyera.php',
+                        data: formdata,
+                        contentType: false,
+                        processData: false,
+                        success: function(data){
+                                document.getElementById("word_form").reset();
+                                alert("Ugurla genderilib");
+                            }
+                    });
+                });
+            });
+*/
         </script>
 </body>
 </html>
