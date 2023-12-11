@@ -516,36 +516,37 @@
                 <div class="right_side_kredit">
                     <div class="fisrt_column_right">
                         <span>Məbləg</span>
-                        <input style="text-align: inherit;" type="text" id="summ2" value="AZN">
+                        <input style="text-align: inherit;" type="text" id="summ2" value="0">
                     </div>
                     <div class="second_column_right">
                         <span>Ay</span>
-                        <input value="12" id="pc_month" type="text">
+                        <input value="12" id="pc_month" type="number">
                     </div>
                     <div class="third_column_right">
                         <span>Aylıq Ödəniş</span>
-                        <input id="pc_total" type="text">
+                        <input id="pc_total" type="number">
                     </div>
                 </div>
             </div>
         </div>
         <div class="left_side_buton_place">
-            <button id="counter" form="calc" onclick="calculate()" style="cursor: pointer;">ÜMUMİ KREDİT
-                MƏBLƏĞİ</button> <input style="text-align: inherit;" type="text" id="summ" value="AZN 0">
+            <!-- form="calc" -->
+            <button id="counter" onclick="calculate()" style="cursor: pointer;">ÜMUMİ KREDİT
+                MƏBLƏĞİ</button> <input style="text-align: inherit;" type="text" id="summ" value="0">
         </div>
         <div class="mobil_version_calc">
             <div class="right_side_kredit">
                 <div class="fisrt_column_right">
                     <span>Məbləg</span>
-                    <input style="text-align: inherit;" type="text" id="summ3" value="AZN 0" readonly>
+                    <input style="text-align: inherit;" type="text" id="summ3" value="0">
                 </div>
                 <div class="second_column_right">
                     <span>Ay</span>
-                    <input value="12" id="mb_month" type="text">
+                    <input value="12" id="mb_month" type="number">
                 </div>
                 <div class="third_column_right">
                     <span>Aylıq Ödəniş</span>
-                    <input id="mb_total" type="text">
+                    <input id="mb_total" type="number">
                 </div>
             </div>
         </div>
@@ -648,8 +649,7 @@ alert('ERROR 3');
             }
         }());
 
-        function calculate() {
-            const inputs = [
+        const inputs = [
                 document.getElementById("fone"),
                 document.getElementById("ftwo"),
                 document.getElementById("fthree"),
@@ -674,16 +674,15 @@ alert('ERROR 3');
                 document.getElementById("vsix")
             ];
 
-            
-
             const values = [41.0 , 64.0 ,82.0 , 96.0 ,100.0 ,110.0];
+
+        function calculate() {
 
             inputs.forEach(element => {
                 if (element.value == "" || element.value < 0) {
                     element.value = '0';
                 }
-            });
-            
+            });          
             var summary = 0;
 
             for (let i = 0; i < values.length; i++) {
@@ -691,28 +690,45 @@ alert('ERROR 3');
                 total[i].value =parseInt(result);
                 summary += result;
             }
-
             
             var result1 = document.getElementById("summ");
-            var result2 = document.getElementById("summ2");
-            var result3 = document.getElementById("summ3");
-            
-            result1.value = "AZN " + summary;
-            result2.value = "AZN " + summary;
-            result3.value = "AZN " + summary;
+            //var result2 = document.getElementById("summ2");
+            // var result3 = document.getElementById("summ3");
+   
+
+            result1.value =summary + " " + "AZN ";
+            //result2.value =summary + " ";
+            // result3.value =summary + " ";
 
             var pcm = document.getElementById("pc_month"); 
             var mbm = document.getElementById("mb_month");
             var pct = document.getElementById("pc_total");
             var mbt = document.getElementById("mb_total");
 
+
             var fvalue1 = (summary * 23.6/100 + summary) / parseInt(pcm.value);
             var fvalue2 = (summary * 23.6/100 + summary) / parseInt(mbm.value); 
 
+
             pct.value = Math.round(fvalue1);
             mbt.value = Math.round(fvalue2);
+// alert(pct.value);
+            return(summary);
         }
 
+        $(document).ready(function(){
+                $('input[type="number"]').on("input", function(){
+                    // alert(calculate());
+                    var smval = calculate();
+                    $('#summ2').val(smval);
+                    $('#summ3').val(smval);
+
+                });
+                $('input[type="text"]').on("input", function(){
+                    calculate();
+                    });
+                
+        });
 
         $(document).ready(function(){
             $('.niber_social_box').hide();
