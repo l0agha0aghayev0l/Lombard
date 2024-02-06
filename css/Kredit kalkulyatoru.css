@@ -1,3 +1,6 @@
+input::placeholder {
+    color: grey;
+}
 * {
     margin: 0;
     padding: 0;
@@ -138,6 +141,8 @@ line-height: normal;
     text-align: center;
     height: 50px;
     margin-right: 8%;
+    margin-top: 5px;
+    width: fit-content;
 }
 .nav {
     width: 100%;
@@ -315,6 +320,15 @@ line-height: normal;
     display: flex;
     flex-direction: column;
 }
+.second_column input:hover {
+    -webkit-box-shadow: 0px 0px 17px 3px rgba(24,114,50,1);
+-moz-box-shadow: 0px 0px 17px 3px rgba(24,114,50,1);
+box-shadow: 0px 0px 17px 3px rgba(24,114,50,1);
+transition: 0.6s;
+}
+.second_column input {
+    transition: 0.6s;
+}
 .second_column {
     display: flex;
     flex-direction: column;
@@ -330,6 +344,15 @@ line-height: normal;
 .second_column_right {
     display: flex;
     flex-direction: column;
+}
+.second_column_right input {
+    transition: 0.6s;
+}
+.second_column_right input:hover {
+    -webkit-box-shadow: 0px 0px 17px 3px rgba(24,114,50,1);
+-moz-box-shadow: 0px 0px 17px 3px rgba(24,114,50,1);
+box-shadow: 0px 0px 17px 3px rgba(24,114,50,1);
+transition: 0.6s;
 }
 .third_column_right {
     display: flex;
@@ -386,6 +409,14 @@ line-height: normal;
     font-weight: 400;
     line-height: 35px; /* 218.75% */
     margin: 20px;
+    transition: 0.6s;
+    padding: 0 10px;
+}
+.message_formas input:hover {
+    transition: 0.6s;
+    -webkit-box-shadow: 0px 0px 17px 3px rgba(24,114,50,1);
+-moz-box-shadow: 0px 0px 17px 3px rgba(24,114,50,1);
+box-shadow: 0px 0px 17px 3px rgba(24,114,50,1);
 }
 .message_formas input[name="send_message"] {
     width: 329px;
@@ -774,8 +805,39 @@ line-height: normal;
         display: flex;
         flex-direction: column;
     } 
+    
+    
+    .kredit_form_price {
+        position: relative;
+        width: 80%;
+        margin-left: 0;       
+    }
+    .kredit_form_price .fisrt_column_right {
+        width: auto;
+        margin-right: 7px;
+    }
+    .kredit_form_price .second_column_right {
+        width: auto;
+        margin-right: 7px;
+    }
+    .kredit_form_price .third_column_right {
+        width: auto;
+        margin-right: 7px;
+    }
+    .kredit_form_price span {
+        margin: 0;
+        width: 100%;
+        padding: 0;
+        padding-top: 0;
+        
+    }
+    .kredit_form_price input {
+        margin: 0;
+        width: 100%;
+        margin-top: 10px;
+    }
 
-
+    
     .banner {
         display: block;
     }
