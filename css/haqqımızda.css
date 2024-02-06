@@ -152,6 +152,8 @@ line-height: normal;
     text-align: center;
     height: 50px;
     margin-right: 8%;
+    margin-top: 5px;
+    width: fit-content;
 }
 .nav {
     width: 100%;
@@ -232,6 +234,13 @@ line-height: normal;
     border-radius: 10px;
     border: 1px solid #000;
     background: #FFF; 
+    transition: 0.6s;
+}
+.about_button:hover{
+    transition: 0.6s;
+    -webkit-box-shadow: 0px 0px 17px 3px rgba(24,114,50,1);
+-moz-box-shadow: 0px 0px 17px 3px rgba(24,114,50,1);
+box-shadow: 0px 0px 17px 3px rgba(24,114,50,1);
 }
 .icons_word_all {
     display: flex;
