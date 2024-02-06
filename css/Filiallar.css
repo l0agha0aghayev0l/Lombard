@@ -138,6 +138,8 @@ line-height: normal;
     text-align: center;
     height: 50px;
     margin-right: 8%;
+    margin-top: 5px;
+    width: fit-content;
 }
 .nav {
     width: 100%;
